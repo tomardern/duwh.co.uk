@@ -4,35 +4,59 @@ import Header from "../components/Header.astro";
 import HowToPlay from "../components/HowToPlay.astro";
 import SessionBanner from "../components/SessionBanner.astro";
 import Session from "../components/Session.astro";
+import Divider from "../components/Divider.astro";
+import Facebook from "../components/Facebook.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <Header />
-  <HowToPlay />
 
-  <div>
-    <SessionBanner />
-    <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
-    <div>
-      <Session />
-      <Session />
+  <div space="y-4">
+    <HowToPlay />
+
+    <div space="y-4" p="x-2">
+      <SessionBanner />
+      <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+      <div grid="~ cols-2" gap="2">
+        <Session />
+        <Session />
+      </div>
+      <p>
+        The sunday session is ideal for those with less experience or those who
+        are new to the sport
+      </p>
+      <p text="sm">
+        <strong>Prices:</strong> Morbi nec semper ex, porttitor congue magna.
+        Nullam tristique nunc nec lectus facilisis dignissim.
+      </p>
     </div>
-    <p>The sunday session is ideal for those with less experience or those who are new to the sport</p>
-    <p>
-      <strong>Prices:</strong> Morbi nec semper ex, porttitor congue magna.
-      Nullam tristique nunc nec lectus facilisis dignissim.
-    </p>
-  </div>
 
-  <div>
-    <SessionBanner />
-    <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
-    <div>
-      <Session />
+    <Divider />
+
+    <div space="y-4" p="x-2">
+      <SessionBanner />
+      <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+      <div w="1/2" mx="auto">
+        <Session />
+      </div>
+      <p text="sm">
+        <strong>Price:</strong> £16/month. First session free.
+      </p>
     </div>
-    <p>
-      <strong>Price:</strong> £16/month. First Session free
-    </p>
-  </div>
 
+    <Divider />
+
+    <Facebook />
+
+    <div>
+      <div>
+        <h4>Policies</h4>
+        <ul>
+          <li>Data Protection</li>
+          <li>Terms and conditions</li>
+          <li>Refunds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </Layout>
