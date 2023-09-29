@@ -1,0 +1,41 @@
+name: Deploy
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build and copy server files
+        run: |
+          npm run build
+          cp server/_headers dist/_headers
+
+      - name: Publish to Cloudflare Pages
+        id: cloudflare
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          directory: "./dist"
+
+      - name: Branch Link as PR status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.request(`POST /repos/${context.repo.owner}/${context.repo.repo}/statuses/${context.sha}`, {
+              state: 'success',
+              context: 'Cloudflare/uploads',
+              target_url: '${{ steps.cloudflare.outputs.alias}}',
+              description: 'Cloudflare Preview URL'
+            }).finally((r) => console.log(r))
