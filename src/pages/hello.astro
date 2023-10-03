@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HowToPlay from "../components/HowToPlay.astro";
+import SessionBanner from "../components/SessionBanner.astro";
+import Session from "../components/Session.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <Header />
+  <HowToPlay />
+
+  <div>
+    <SessionBanner />
+    <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+    <div>
+      <Session />
+      <Session />
+    </div>
+    <p>The sunday session is ideal for those with less experience or those who are new to the sport</p>
+    <p>
+      <strong>Prices:</strong> Morbi nec semper ex, porttitor congue magna.
+      Nullam tristique nunc nec lectus facilisis dignissim.
+    </p>
+  </div>
+
+  <div>
+    <SessionBanner />
+    <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+    <div>
+      <Session />
+    </div>
+    <p>
+      <strong>Price:</strong> £16/month. First Session free
+    </p>
+  </div>
+
+</Layout>
