@@ -1,13 +1,22 @@
+---
+interface Props {
+  day: string;
+  time: string;
+  address: string;
+}
+
+const { day, time, address } = Astro.props;
+const addressLines = address.split(",");
+---
+
 <div bg="gray-100" p="4" text="center" space="y-6">
   <div>
-    <h3 font="bold" text="lg purple-950">Sunday</h3>
-    <p>19:00 - 21:00</p>
+    <h3 font="bold" text="lg purple-950">{day}</h3>
+    <p>{time}</p>
   </div>
 
   <div text="left">
-    <h4 font="bold">Flitwick Leisure Centre</h4>
-    <p>Steppingly Road</p>
-    <p>Flitwick</p>
-    <p>MK45 1TH</p>
+    <h4 font="bold">{addressLines[0]}</h4>
+    {addressLines.slice(1, 4).map((str) => <p>{str}</p>)}
   </div>
 </div>

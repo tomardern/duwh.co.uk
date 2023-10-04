@@ -16,18 +16,29 @@ import Facebook from "../components/Facebook.astro";
 
     <div space="y-4" p="x-2">
       <SessionBanner />
-      <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+      <p>
+        Our first division adult team welcomes new members for a competitive and
+        fun session
+      </p>
       <div grid="~ cols-2" gap="2">
-        <Session />
-        <Session />
+        <Session
+          day="Thursday"
+          time="19:00 - 21:00"
+          address="Inspire: Luton Sports Village, Butterfield Green Rd, Luton, LU2 8DD"
+        />
+        <Session
+          day="Sunday"
+          time="18:00 - 20:00"
+          address="Flitwick Leisure Centre, Steppingley Rd, Flitwick, MK45 1TH"
+        />
       </div>
       <p>
         The sunday session is ideal for those with less experience or those who
         are new to the sport
       </p>
       <p text="sm">
-        <strong>Prices:</strong> Morbi nec semper ex, porttitor congue magna.
-        Nullam tristique nunc nec lectus facilisis dignissim.
+        <strong>Prices:</strong> £7/session or £25/month (one session per week)
+        or £37/month (all sesssions). First session free
       </p>
     </div>
 
@@ -35,9 +46,16 @@ import Facebook from "../components/Facebook.astro";
 
     <div space="y-4" p="x-2">
       <SessionBanner />
-      <p>Mauris et tellus id ligula pulvinar fringilla eget sit amet dui.</p>
+      <p>
+        Your child needs no experience but must be confident in the water and
+        able to swim 25m unaided. Kit can be provided.
+      </p>
       <div w="1/2" mx="auto">
-        <Session />
+        <Session
+          day="Sunday"
+          time="17:00 - 18:00"
+          address="Flitwick Leisure Centre, Steppingley Rd, Flitwick, MK45 1TH"
+        />
       </div>
       <p text="sm">
         <strong>Price:</strong> £16/month. First session free.
@@ -46,16 +64,22 @@ import Facebook from "../components/Facebook.astro";
 
     <Divider />
 
-    <Facebook />
+    <div p="x-2">
+      <Facebook />
+    </div>
 
-    <div>
+    <Divider />
+
+    <div p="x-2">
       <div>
-        <h4>Policies</h4>
-        <ul>
-          <li>Data Protection</li>
-          <li>Terms and conditions</li>
-          <li>Refunds</li>
-        </ul>
+        <div>
+          <h4>Policies</h4>
+          <ul>
+            <li>Data Protection</li>
+            <li>Terms and conditions</li>
+            <li>Refunds</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
