@@ -1,3 +1,12 @@
-<div bg="purple-950" border="1 purple-950" p="2" pt="10">
-  <h2 text="lg white" font="bold">Senior Sessions <small>(Over 16s)</small></h2>
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  image?: string;
+}
+
+const { title, subtitle, image } = Astro.props;
+---
+<div bg="purple-950 no-repeat cover" border="4 purple-950" pt="15" style={{ backgroundImage: `url(${image}` }}>
+  <h2 text="lg white" bg="purple-950/70" class="leading-tight" p="2"  shadow="lg" font="bold">{title} <small ml="2">{subtitle}</small></h2>
 </div>

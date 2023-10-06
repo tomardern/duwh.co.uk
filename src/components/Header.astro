@@ -1,5 +1,5 @@
-<header p="4" space="y-6">
-  <div flex="~ row-reverse">
+<header p="4" space="y-10" pb="md:20" max-w="md:[1024px]" mx="auto">
+  <div flex="~ row-reverse" pt="4">
     <a
       bg="purple-950"
       cursor="pointer"
@@ -10,16 +10,22 @@
     >
   </div>
 
-  <img src="#" />
+  <img src="/logo_small.png" max-w="[300px]" mx="auto" style="aspect-ratio: 400 / 171" />
 
-  <div space="y-4" text="center">
+  <div space="y-4" text="center" max-w="[600px]" mx="auto">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in massa
-      ut odio imperdiet convallis.
-    </p>
-    <p>
-      Nunc congue urna eget risus pretium imperdiet. Praesent eget feugiat
-      purus, nec molestie enim.
+      Dunstable Underwater Hockey Club (DUWH) formed in 1972 and has a first division adult team and a lively junior team with friendly and supportive coaches
     </p>
   </div>
 </header>
+
+<style is:global>
+  .background-heading {
+    background-image: url('mobile-background.jpg');
+  }
+  @media (min-width: 768px) {
+    .background-heading {
+      background-image: url('desktop-background.jpg')
+    }
+  }
+  </style>
