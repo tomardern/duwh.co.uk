@@ -13,8 +13,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run:
-          cd website
+        run: |
           npm ci --ignore-scripts
 
       - name: Build and copy server files
