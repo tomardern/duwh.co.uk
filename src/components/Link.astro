@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  href: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<li>
+  <a href=`${href}` text="sm" space="x-2" flex="~" align="items-center">
+    <span text="sm hover:gray-700">{title}</span>
+    <img src="/icon-new-tab.svg" h="3" w="3" />
+  </a>
+</li>

@@ -1,14 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import HowToPlay from "../components/HowToPlay.astro";
+
 import SessionBanner from "../components/SessionBanner.astro";
 import Session from "../components/Session.astro";
 import Divider from "../components/Divider.astro";
 import Facebook from "../components/Facebook.astro";
+import Links from "../components/Links.astro";
+import Link from "../components/Link.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Dunstable Underwater Hockey (DUWH)">
   <Header />
 
   <div bg="gray-50">
@@ -17,17 +19,20 @@ import Facebook from "../components/Facebook.astro";
       <Divider />
 
       <div class="md:grid" grid="cols-2" gap="8" px="2 md:0">
-
         <div space="y-4">
-          <SessionBanner title="Senior Sessions" subtitle="(Over 16)" image="adults.jpg" />
+          <SessionBanner
+            title="Senior Sessions"
+            subtitle="(Over 16)"
+            image="adults.jpg"
+          />
           <p px="2">
-            Our first division adult team welcomes new members for a competitive and
-            fun session
+            Our first division adult team welcomes new members for a competitive
+            and fun session
           </p>
           <div grid="~ cols-2" gap="2">
             <Session
               day="Thursday"
-              time="19:00 - 21:00"
+              time="21:15 - 22:15"
               address="Inspire Sports Village, Butterfield Green Rd, Luton, LU2 8DD"
             />
             <Session
@@ -37,26 +42,30 @@ import Facebook from "../components/Facebook.astro";
             />
           </div>
           <p text="sm" px="2">
-            <strong>Prices:</strong> £7/session or £25/month (one session per week)
-            or £37/month (all sesssions). First session free
+            <strong>Prices:</strong> £7/session or £25/month (one session per
+            week) or £37/month (all sesssions). First session free
           </p>
           <div px="2" flex="~ row" space="x-2">
             <img src="icon-information.svg" display="inline-block" w="5 " />
             <p text="sm">
-              The sunday session is ideal for those with less experience or those who
-              are new to the sport
+              The sunday session is ideal for those with less experience or
+              those who are new to the sport
             </p>
           </div>
           <div class="md:hidden">
-            <Divider  />
+            <Divider />
           </div>
         </div>
 
         <div space="y-4">
-          <SessionBanner title="Junior Sessions" subtitle="(9 to 16 years)" image="junior.jpg" />
+          <SessionBanner
+            title="Junior Sessions"
+            subtitle="(9 to 16 years)"
+            image="junior.jpg"
+          />
           <p px="2">
-            Your child needs no experience but must be confident in the water and
-            able to swim 25m unaided. Kit can be provided.
+            Your child needs no experience but must be confident in the water
+            and able to swim 25m unaided. Kit can be provided.
           </p>
           <div w="1/2" mx="auto">
             <Session
@@ -69,29 +78,56 @@ import Facebook from "../components/Facebook.astro";
             <strong>Price:</strong> £16/month. First session free.
           </p>
           <div class="md:hidden">
-            <Divider  />
+            <Divider />
           </div>
         </div>
-
       </div>
 
-      <div class="hidden md:block" >
+      <div class="hidden md:block">
         <Divider />
       </div>
 
-      <div p="x-2" grid="cols-1 md:cols-4" class="block md:grid">
+      <div
+        p="x-2"
+        grid="cols-1 md:cols-4"
+        space="y-4 md:y-0"
+        class="block md:grid"
+      >
         <div class="col-span-2">
-          <Facebook  />
+          <Facebook />
         </div>
-        <!-- <div>
-          <h5 font="semibold">Policies</h5>
-        </div> -->
-        <!-- <div>Links</div> -->
+        <div>
+          <Links title="Policies">
+            <Link
+              href="/documents/duwh-new-starter-oct-2023.pdf"
+              title="New Starter Form"
+            />
+            <!-- <Link href="#" title="Safeguarding" /> -->
+            <Link
+              href="/documents/club-risk-assessment-oct-2023.pdf"
+              title="Club Risk Assessment"
+            />
+            <Link
+              href="/documents/boa-risk-assessment-oct-2023.pdf"
+              title="BOA Risk Assessment"
+            />
+          </Links>
+        </div>
+        <div>
+          <Links title="Links">
+            <Link href="mailto:info@duwh.co.uk" title="Contact Us" />
+            <Link href="https://portal.duwh.co.uk" title="Invoice Portal" />
+            <Link
+              href="https://www.gbuwh.co.uk/"
+              title="British Octopush Association (BOA)"
+            />
+          </Links>
+        </div>
       </div>
 
-      <Divider />
-
-
+      <div pb="8">
+        <Divider />
+      </div>
     </div>
   </div>
 </Layout>
