@@ -22,12 +22,11 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         id: cloudflare
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: "./dist"
+          command: pages deploy ./dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.ref_name }}
 
       - name: Branch Link as PR status
         uses: actions/github-script@v6
@@ -36,6 +35,6 @@ jobs:
             github.request(`POST /repos/${context.repo.owner}/${context.repo.repo}/statuses/${context.sha}`, {
               state: 'success',
               context: 'Cloudflare/uploads',
-              target_url: '${{ steps.cloudflare.outputs.alias}}',
+              target_url: '${{ steps.cloudflare.outputs.pages-deployment-alias-url || steps.cloudflare.outputs.deployment-url }}',
               description: 'Cloudflare Preview URL'
             }).finally((r) => console.log(r))
